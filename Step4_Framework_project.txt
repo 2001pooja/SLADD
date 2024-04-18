@@ -1,0 +1,107 @@
+ Used page factory model.
+ 1]In home page we have created a constructor.
+ 2]Base page contains only constructor.and here we used page factory model
+   super keyword is invoking parent class constructor. 
+ 3]Account Registration page:(extends from base page)
+   method name should be meaningfull so that we can understand what its  functionality is.
+ 4]Make every method as public in test cases. 
+ 5] Use veriy or test word while naming each test.
+ 6]Base class is required for each testcase and contains methods which are repeatedly used.
+ 7]
+
+ @BeforeClass
+ BEFORE SETUP()
+ 5] set browser
+ 6] delete all cookies from browser.
+ 7] Add implicit wait in same method.
+ 8] get url
+ 9] maximize window.
+
+
+ @AfterClass
+public void tearDown(){
+	driver.close();
+}
+10] close browser.
+
+ @Test
+ public void verify_account_registeration()
+ {
+	HomePage hp = new HomePage();
+	hp.clickMyAccount();
+	hp.clickRegister();
+
+	AccountRegistrationPage repage= new AccountRegistrationPage(driver);//(NEED TO IMPORT IT FROM PAGE OBJECTS)
+	repage.setFirstname(randomstring());
+ 	repage.setFirstname(randomString());
+	repage.setEmail(randomString()+"@gmail.com");
+	reoage.setTelephone(randomNumber());
+
+	String password=randomAlphaNumeric();
+
+	repage.setPassword(password);
+	repage.setConfirmPassword(password);
+	
+	
+	
+
+   }
+
+[ // Normal java user defined methods. They are not TestNG methods.
+	public string randomString()
+	{
+		String generatedString=RandomStringUtils.randomAlphabetic(5);
+		return generatedString;
+	}
+
+	public string randomNumber()
+	{
+		String generatedNumber=RandomStringUtils.randomNumeric(10);
+		return generatedNumber;
+	}
+
+	public string randomAlphaNumeric()
+	{
+		String str=RandomStringUtils.randomAlphabetic(3);
+		String num=RandomStringUtils.randomNumeric(3);
+
+		return (str+"@"+num);
+	}
+]
+	 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@FindBy(xpath="//input[@id='input-firstname']") @CacheLookup private WebElement firstName;
+@FindBy(xpath="//input[@id='input-lastname']") @CacheLookup private WebElement lastName;
+@FindBy(xpath="//input[@id='input-email']") @CacheLookup private WebElement e-Mail;
+@FindBy(xpath="//input[@id='input-password']") @CacheLookup private WebElement password;
+@FindBy(xpath="//input[@id='input-newsletter-no']") @CacheLookup private WebElement no;
+@FindBy(xpath="//div[@class='row mb-3']//div[2]") @CacheLookup private WebElement no;
+@FindBy(xpath="//input[@name='agree']") @CacheLookup private WebElement agree;
+@FindBy(xpath="//input[@name='agree']") @CacheLookup private WebElement agree;
+@FindBy(xpath="//input[@name='agree']") @CacheLookup private WebElement agree;
+@FindBy(xpath="//input[@name='agree']") @CacheLookup private WebElement agree;
+@FindBy(xpath="//button[normalize-space()='Continue']") @CacheLookup private WebElement continue;
